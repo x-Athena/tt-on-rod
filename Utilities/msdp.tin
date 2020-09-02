@@ -72,8 +72,8 @@
     #ELSE {
         #VARIABLE {MSDP_%0} {%1};
     };
-    #showme {Sanc: $MSDP_AFFECTS[sanctuary] True: $MSDP_AFFECTS[true sight] Blind: $MSDP_AFFECTS[blindness]} {-3};
-    msdpevent
+#NOP    #showme {Sanc: $MSDP_AFFECTS[sanctuary] True: $MSDP_AFFECTS[true sight] Blind: $MSDP_AFFECTS[blindness]} {-3};
+#NOP    msdpevent
 }
 
 
