@@ -62,7 +62,7 @@
 	#FORMAT {cols} {%C};
 	#MATH {space} {$cols - 42};
 	#ECHO {%-15s | %-6s | %-12s | %.${space}s} {Area Name} {Start} {Notes} {Directions};
-    #FOREACH {$areas[]} {area} {
+    #FOREACH {*areas[]} {area} {
         #ECHO {%-15s | %-6s | %-12s | %.${space}s} {$area} {$areas[$area][start]} {$areas[$area][notes]} {$areas[$area][dirs]};
     };
     #ECHO {%h} { Geo List };
