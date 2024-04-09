@@ -1,0 +1,1 @@
+#NOP This initialization value allows for worlds.dat to be read even if empty for the addworlds command. 
