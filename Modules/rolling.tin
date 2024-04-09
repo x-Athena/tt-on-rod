@@ -1,5 +1,5 @@
 #TICK {idle} {#cr} {300}
-#READ $script_dir/Modules/rolling.dat
+#READ Modules/rolling.dat
 #CLASS {roll} {open}
 
 #NOP Setup

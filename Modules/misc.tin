@@ -1,5 +1,5 @@
 #NOP Read in some lower functioning modules that aren't anything special
 
-#READ $script_dir/Modules/afk.tin;
-#READ $script_dir/Modules/trance.tin;
+#READ Modules/afk.tin;
+#READ Modules/trance.tin;
 

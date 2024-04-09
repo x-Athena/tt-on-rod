@@ -6,7 +6,7 @@
 #CLASS {worlddata} {OPEN};
 #VARIABLE {worldlist} {{Tmp}{{host}{216.251.47.10}{port}{4000}}};
 #CLASS {worlddata} {CLOSE};
-#CLASS {worlddata} {READ} {$script_dir/Utilities/worlds.dat};
+#CLASS {worlddata} {READ} {Utilities/worlds.dat};
 
 #CLASS {worlds} {OPEN}
 #ALIAS {session_setup} {
@@ -25,7 +25,7 @@
 }
 
 #ALIAS {addworld} {
-    #CLASS {worlddata} {READ} {$script_dir/Utilities/worlds.dat};
+    #CLASS {worlddata} {READ} {Utilities/worlds.dat};
     #FORMAT {utility_worlds_session} {%n} {%1};
     #IF {"%3" == ""} {
         #SHOWME {Syntax: addworld <world> <host> <port> [<character> [<password> [<owner> [<class> [<comment>]]]]]};
@@ -43,17 +43,17 @@
             #SHOWME {The world $utility_worlds_session (%2 %3) and the character $utility_worlds_character (%5) has been added.};
             #UNVARIABLE {utility_worlds_%*};
         };
-        #CLASS {worlddata} {WRITE} {$script_dir/Utilities/worlds.dat};
+        #CLASS {worlddata} {WRITE} {Utilities/worlds.dat};
     };
     #ELSE { #SHOWME {The world %1 already exists.}; };
 };
 
 #ALIAS {deleteworld} {
-    #CLASS {worlddata} {READ} {$script_dir/Utilities/worlds.dat};
+    #CLASS {worlddata} {READ} {Utilities/worlds.dat};
     #FORMAT {utility_worlds_delete} {%n} {%1};
     #IF {&{worldlist[$utility_worlds_delete]}} {
         #UNVARIABLE {worldlist[$utility_worlds_delete]};
-        #CLASS {worlddata} {WRITE} {$script_dir/Utilities/worlds.dat};
+        #CLASS {worlddata} {WRITE} {Utilities/worlds.dat};
         #SHOWME {The world $utility_worlds_delete has been deleted.};
     };
     #ELSE {
@@ -74,7 +74,7 @@
     #ELSEIF {&{worldlist[$utility_worlds_connect]}} {
         #SESSION {$utility_worlds_connect} {$worldlist[$utility_worlds_connect][host]} {$worldlist[$utility_worlds_connect][port]};
         #gts {
-	    #READ $script_dir/Utilities/worlds.dat;
+	    #READ Utilities/worlds.dat;
             #VAR {world} {$worldlist[$utility_worlds_connect]};
 
             #NOP This section was an attempt to use events to control the login process;
@@ -89,7 +89,7 @@
                 #${utility_worlds_connect} {
                     $worldlist[$utility_worlds_connect][name];
                     $worldlist[$utility_worlds_connect][pw];
-                    #READ $script_dir/Characters/${worldlist[$utility_worlds_connect][name]}.tin;
+                    #READ Characters/${worldlist[$utility_worlds_connect][name]}.tin;
                     session_setup;
                 };
             };

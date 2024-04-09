@@ -3,7 +3,7 @@
 #VARIABLE {areas[DAG]} {{start}{DH[]} {notes}{} {dirs}{#4 s;w;n} {geo}{New Darkhaven} {astral}{}};
 #VARIABLE {geo[New Darkhaven]} {{start}{DH[]} {notes}{N/A} {dirs}{N/A} {astral}{N/A}};
 #CLASS {areadata} {CLOSE};
-#CLASS {areadata} {READ} {$script_dir/Utilities/areas.dat};
+#CLASS {areadata} {READ} {Utilities/areas.dat};
 
 #CLASS {areas} {OPEN}
 #ALIAS {areacommands} {
@@ -20,7 +20,7 @@
 }
 
 #ALIAS {addarea} {
-    #CLASS {areadata} {READ} {$script_dir/Utilities/areas.dat};
+    #CLASS {areadata} {READ} {Utilities/areas.dat};
     #FORMAT {arg} {%l} {%1};
     #IF {"$arg" == "" || "%5" == ""} {
         #SHOWME {Usage: <170>addarea geo Geo-Name, Starting-Point, Notes, Directions, [Astral-Point]};
@@ -53,7 +53,7 @@
     #ELSE {
         #SHOWME {addarea: Area "$arg" already exists};
     };
-    #CLASS {areadata} {WRITE} {$script_dir/Utilities/areas.dat};
+    #CLASS {areadata} {WRITE} {Utilities/areas.dat};
     #UNVARIABLE {arg};
 }
 
@@ -69,7 +69,7 @@
     #FOREACH {*geo[]} {area} {
         #ECHO {%-15s | %-6s | %-12s | %.${space}s} {$area} {$geo[$area][start]} {$geo[$area][notes]} {$geo[$area][dirs]};
     };
-    #ECHO {%h}
+    #ECHO {%h};
     #UNVARIABLE {cols};
     #UNVARIABLE {space};
     #UNVARIABLE {area};
@@ -102,7 +102,7 @@
 }
 
 #ALIAS {delarea} {
-    #CLASS {areadata} {READ} {$script_dir/Utilities/areas.dat};
+    #CLASS {areadata} {READ} {Utilities/areas.dat};
     #FORMAT {arg} {%l} {%1};
     #IF {"%1" == ""} {
         #SHOWME {Usage: <170>delarea [geo] area-name};
@@ -110,12 +110,12 @@
     #ELSEIF {"$arg" == "geo" && &{geo[%2]}} {
         #UNVARIABLE {geo[%2]};
         #SHOWME {delarea: Deleted geo "%2"};
-        #CLASS {areadata} {WRITE} {$script_dir/Utilities/areas.dat};
+        #CLASS {areadata} {WRITE} {Utilities/areas.dat};
     };
     #ELSEIF {&{areas[%1]}} {
         #UNVARIABLE {areas[%1]};
         #SHOWME {delarea: Deleted area "%1"};
-        #CLASS {areadata} {WRITE} {$script_dir/Utilities/areas.dat};
+        #CLASS {areadata} {WRITE} {Utilities/areas.dat};
     };
     #ELSEIF {"$arg" == "geo"} {
 	    #SHOWME {delarea: Couldn't find geo "%2"};
@@ -127,7 +127,7 @@
 }
 
 #ALIAS {goto} {
-    #CLASS {areadata} {READ} {$script_dir/Utilities/areas.dat};
+    #CLASS {areadata} {READ} {Utilities/areas.dat};
     #FORMAT {arg} {%l} {%1};
     #IF {"%1" == ""} {
         arealist;
@@ -154,7 +154,7 @@
 }
 
 #ALIAS {swinit} {
-    #CLASS {areadata} {READ} {$script_dir/Utilities/areas.dat};
+    #CLASS {areadata} {READ} {Utilities/areas.dat};
     #FORMAT {arg} {%l} {%1};
     #IF {"%1" == ""} {
         arealist;
@@ -180,7 +180,7 @@
 }
 
 #ALIAS {telldirs} {
-    #CLASS {areadata} {READ} {$script_dir/Utilities/areas.dat};
+    #CLASS {areadata} {READ} {Utilities/areas.dat};
     #FORMAT {arg} {%l} {%1};
     #IF {"%1" == ""} {
         #SHOWME {Useage: <170>telldirs [geo] area-name};

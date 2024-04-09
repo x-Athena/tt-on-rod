@@ -1,0 +1,25 @@
+#CLASS {areadata} OPEN
+
+#VARIABLE {areas}
+{
+    {DAG} 
+    {
+        {astral} {}
+        {dirs} {#4 s;w;n}
+        {geo} {New Darkhaven}
+        {notes} {}
+        {start} {DH[]}
+    }
+}
+#VARIABLE {geo}
+{
+    {New Darkhaven} 
+    {
+        {astral} {N/A}
+        {dirs} {N/A}
+        {notes} {N/A}
+        {start} {DH[]}
+    }
+}
+
+#CLASS {areadata} CLOSE

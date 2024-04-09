@@ -1,4 +1,4 @@
-#CLASS {repop} {READ} {$script_dir/Utilities/repop.dat}
+#CLASS {repop} {READ} {Utilities/repop.dat}
 #IF {! &repop_data} {
     #CLASS {repop} {OPEN};
     #VARIABLE {repop_data} {{Area}{{number}{}{mean}{}{min}{}{max}{}{last_repop}{}}};
@@ -9,7 +9,7 @@
 #CLASS {utilities} {OPEN}
 #ALIAS {repop} {
     #SHOWME {Area: %0};
-    #CLASS {repop} {READ} {$script_dir/Utilities/repop.dat};
+    #CLASS {repop} {READ} {Utilities/repop.dat};
     #FORMAT {repop_time} {%T};
     #VARIABLE {repop_duration} {@get_tdiff{$repop_data[%0][last_repop]}};
     #IF {&repop_data[%0] && ! &repop_data[%0][number]} {
@@ -28,11 +28,11 @@
     };
     #VARIABLE {last_repop_area} {%0};
     #VARIABLE {repop_data[%0][last_repop]} {$repop_time};
-    #CLASS {repop} {WRITE} {$script_dir/Utilities/repop.dat};
+    #CLASS {repop} {WRITE} {Utilities/repop.dat};
 }
 
 #ALIAS {sincerepop} {
-    #CLASS {repop} {READ} {$script_dir/Utilities/repop.dat};
+    #CLASS {repop} {READ} {Utilities/repop.dat};
     #IF {"%0" == "" && $MSDP_ON} {
         #NOP {Assume current area};
         #VARIABLE {sincerepop_area} {$MSDP_AREA_NAME};
@@ -40,7 +40,7 @@
     #ELSEIF {"%0" == ""} {
         #NOP {Assume the last repop seen};
         #VARIABLE {sincerepop_area} {$last_repop_area};
-    }
+    };
     #ELSE {
         #NOP {Try to find area};
 	#VARIABLE {sincerepop_area} {$last_repop_area};
@@ -50,7 +50,7 @@
 }
 
 #ALIAS {lastrepop} {
-    #CLASS {repop} {READ} {$script_dir/Utilities/repop.dat};
+    #CLASS {repop} {READ} {Utilities/repop.dat};
     #IF {"%0" == "" && $MSDP_ON} {
         #NOP {Assume current area};
         #VARIABLE {lastrepop_area} {$MSDP_AREA_NAME};
@@ -58,7 +58,7 @@
     #ELSEIF {"%0" == ""} {
         #NOP {Assume the last repop seen};
         #VARIABLE {lastrepop_area} {$last_repop_area};
-    }
+    };
     #ELSE {
         #NOP {Try to find area};
 	#VARIABLE {lastrepop_area} {$last_repop_area};
