@@ -1,11 +1,10 @@
+
+
+
 About
 =====
-This project is to reimplement my MUD scripts so they aren't so embarrassing to
-share with friends. With that in mind I need to give some credits. At some
-point during the 1.x releases of Tintin++ I was referencing the scripts from
-the [website](http://tintin.sourceforge.net/scripts/) that Scandum has made
-public domain. My own work is available under the
-[WTFPL](http://sam.zoy.org/wtfpl/COPYING).
+Originally forked from Mitlik [https://github.com/Mitlik/tt-on-rod] who initially referenced Scandum's scripts found here : [https://tintin.mudhalla.net/scripts/]
+License is WTFPL, aka do what the fuck you want. 
 
 Notes
 =====
@@ -58,6 +57,8 @@ Types of files:
 
 Road Map
 ========
+Athena : As a new player I haven't a clue what some of these milestones mean, but I do want to learn.
+
 Subject to change. Part of sharing is hoping that another mind can come up with
 some neat ideas to include.
 
@@ -67,6 +68,7 @@ Milestone goal: Help make tintin easier to use for logging in and offer some
 neat features
 
 - [X] Simplified connect with stored character data
+- [ ] Separate Comms area
 - [ ] Simple speed walk with storage: check vs built-in speedwalk
 - [X] Basic MSDP
 - [ ] Basic battle scripts
